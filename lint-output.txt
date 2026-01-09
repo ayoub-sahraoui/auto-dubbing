@@ -1,0 +1,100 @@
+﻿
+> auto-dubbing@0.0.0 lint
+> eslint .
+
+
+D:\Projects\Web\React JS\auto-dubbing\src\App.tsx
+   29:10  error  'sourceLanguage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   72:14  error  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+  102:14  error  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+  116:14  error  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+  134:14  error  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+  148:14  error  'err' is defined but never used                      @typescript-eslint/no-unused-vars
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\LanguageSelector.tsx
+  52:18  error  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\StepIndicator.tsx
+  5:40  error  Parsing error: Unterminated string literal
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\TranscriptEditor.tsx
+  29:64  error  '_id' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\VideoUploader.tsx
+  2:10  error  'IconUpload' is defined but never used  @typescript-eslint/no-unused-vars
+  2:22  error  'IconVideo' is defined but never used   @typescript-eslint/no-unused-vars
+  2:33  error  'IconX' is defined but never used       @typescript-eslint/no-unused-vars
+  4:10  error  'Card' is defined but never used        @typescript-eslint/no-unused-vars
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\badge.tsx
+  46:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\button-group.tsx
+  82:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\button.tsx
+  62:18  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\form.tsx
+  159:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\navigation-menu.tsx
+  167:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\sidebar.tsx
+  611:26  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\sidebar.tsx:611:26
+  609 |   // Random width between 50 to 90%.
+  610 |   const width = React.useMemo(() => {
+> 611 |     return `${Math.floor(Math.random() * 40) + 50}%`
+      |                          ^^^^^^^^^^^^^ Cannot call impure function
+  612 |   }, [])
+  613 |
+  614 |   return (  react-hooks/purity
+  725:3   error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\components\ui\toggle.tsx
+  45:18  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\Projects\Web\React JS\auto-dubbing\src\hooks\useJob.ts
+   44:17  error    Error: Cannot access variable before it is declared
+
+`stopPolling` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+D:\Projects\Web\React JS\auto-dubbing\src\hooks\useJob.ts:44:17
+  42 |             if (data.status === 'completed') {
+  43 |                 onComplete?.(data);
+> 44 |                 stopPolling();
+     |                 ^^^^^^^^^^^ `stopPolling` accessed before it is declared
+  45 |             }
+  46 |
+  47 |             // Handle error
+
+D:\Projects\Web\React JS\auto-dubbing\src\hooks\useJob.ts:64:5
+  62 |     }, [fetchJob, pollingInterval]);
+  63 |
+> 64 |     const stopPolling = useCallback(() => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 65 |         if (pollingRef.current) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 66 |             clearInterval(pollingRef.current);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 67 |             pollingRef.current = null;
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 68 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 69 |     }, []);
+     | ^^^^^^^^^^^^ `stopPolling` is declared here
+  70 |
+  71 |     // Initial fetch and start polling
+  72 |     useEffect(() => {  react-hooks/immutability
+   57:8   warning  React Hook useCallback has a missing dependency: 'stopPolling'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/exhaustive-deps
+   62:8   warning  React Hook useCallback has a missing dependency: 'stopPolling'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/exhaustive-deps
+   91:8   warning  React Hook useEffect has missing dependencies: 'fetchJob', 'job', 'startPolling', and 'stopPolling'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+  109:8   warning  React Hook useEffect has a missing dependency: 'job'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+
+Ô£û 26 problems (22 errors, 4 warnings)
+

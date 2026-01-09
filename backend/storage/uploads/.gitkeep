@@ -1,0 +1,2 @@
+# This file keeps the uploads directory in Git
+# The actual uploaded videos are ignored via .gitignore
